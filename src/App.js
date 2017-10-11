@@ -1,4 +1,25 @@
 import React, { Component } from 'react';
+import {Route, Redirect, Switch} from 'react-router-dom';
+
+
+const home = () => {
+  return (
+    <p>this is the home route "/"</p>
+  )
+}
+
+const login = () => {
+  return (
+    <p>login here</p>
+  )
+}
+
+const signup = () => {
+  return (
+    <p>signup here</p>
+  )
+}
+
 
 
 
@@ -6,12 +27,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header >
-          <h1 >Welcome to React</h1>
-        </header>
-        <p >
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+          <Route path="/" component={home} />
+          <Route path="/login" component={login} />
+          <Route path="/signup" component={signup} /> 
+
       </div>
     );
   }
