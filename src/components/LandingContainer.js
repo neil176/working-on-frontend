@@ -4,8 +4,13 @@ import React from 'react'
 class LandingContainer extends React.Component {
 	constructor() {
 		super()
-		this.state = {}
+		this.state = {
+			LoggingIn: false,
+			SigningUp: false
+		}
 	}
+
+	
 
 	render() {
 
