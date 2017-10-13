@@ -38,6 +38,7 @@ class App extends Component {
       return response.json()
     })
     .then((respJSON) => {
+      console.log(respJSON)
       localStorage.setItem('jwtToken', respJSON.jwt)
       this.setState({
         user: respJSON.user,
@@ -48,7 +49,7 @@ class App extends Component {
 
   fetchUserInfo() {
     if (localStorage.getItem('jwtToken')) {
-      return fetch("http://localhost:3000/welcome", { // change route as needed
+      return fetch("http://localhost:3000/currentuser", { // change route as needed
         method: 'GET',
         headers: {
           "Accept": "application/json",
@@ -87,7 +88,7 @@ class App extends Component {
   }
 
   signUpUser = (signUpParams) => {
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://localhost:3000/users", {
       method: 'post',
       body: JSON.stringify(signUpParams),
       headers: {
@@ -117,7 +118,7 @@ class App extends Component {
   render() {
     return (
       <div>
-          <NavBar />
+          <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
           <Route path="/" component={home} />
           <Route path="/login" render={() => <LogIn logInUser={this.logInUser} />} />
           <Route path="/signup" component={SignUp} /> 
