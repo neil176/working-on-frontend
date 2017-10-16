@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom';
 
-import NavBar from './components/NavBar.js'
+import { Grid } from 'semantic-ui-react'
+
+
+import NavBar from './components/NavBar.js';
 import LogIn from './components/LogIn.js';
 import SignUp from './components/SignUp.js';
+import LandingContainer from './containers/LandingContainer.js';
+import HomeContainer from './containers/HomeContainer.js';
+import ProjectContainer from './containers/ProjectContainer.js';
 
 
 
-const home = () => {
-  return (
-    <p>this is the home route "/"</p>
-  )
-}
 
 
 class App extends Component {
@@ -115,15 +116,44 @@ class App extends Component {
 
 
 
-  render() {
-    return (
-      <div>
-          <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
-          <Route path="/" component={home} />
-          <Route path="/login" render={() => <LogIn logInUser={this.logInUser} />} />
-          <Route path="/signup" component={SignUp} /> 
+// will need to add a HOC to redirect according to !!isLoggedIn
 
-      </div>
+  render() {
+
+
+// resolve this with a HOC
+//---------------------------------------
+    // let home = null;
+    // if (this.state.isLoggedIn) {
+    //   home = <HomeContainer />
+    // } else {
+    //   home = <LandingContainer />
+    // }
+
+
+// THIS IS THE NON LOGGED IN component with props for: "/"
+    // removed from return!
+    // <Route path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+
+    return (
+      // restructure grid design so that this stops breaking
+      
+      <Grid columns={2} divided>
+        <Grid.Row>
+          <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
+        </Grid.Row>
+          <Route path="/" render={() => {
+            if (this.state.isLoggedIn) {
+              return <HomeContainer />;
+            } else {
+              return <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />              
+            }
+          }} />
+
+          
+
+          
+      </Grid>
     );
   }
 }
