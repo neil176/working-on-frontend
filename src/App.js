@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom';
 
-import { Grid } from 'semantic-ui-react'
+
+import './App.css';
 
 
 import NavBar from './components/NavBar.js';
@@ -45,6 +46,8 @@ class App extends Component {
         user: respJSON.user,
         isLoggedIn: true
       })
+      console.log(this)
+      // this.props.history.push(`/users/${respJSON.user.id}`)
     })
   }
 
@@ -107,6 +110,10 @@ class App extends Component {
         user: respJSON.user,
         isLoggedIn: true
       })
+      // console.log(this.props.history)
+
+      // this.props.history.push(`/users/${respJSON.user.id}`)
+      // is this the right place to push to "/users/:id" ?
     })
   }
 
@@ -137,23 +144,16 @@ class App extends Component {
 
     return (
       // restructure grid design so that this stops breaking
-      
-      <Grid columns={2} divided>
-        <Grid.Row>
-          <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
-        </Grid.Row>
-          <Route path="/" render={() => {
-            if (this.state.isLoggedIn) {
-              return <HomeContainer />;
-            } else {
-              return <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />              
-            }
-          }} />
 
-          
 
-          
-      </Grid>
+      // change so that user homepage is no longer at "/", but rather at "/users/:id"
+      <div className="wrapper">
+        <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
+        <Switch>
+          <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+          <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
+        </Switch>          
+      </div>
     );
   }
 }

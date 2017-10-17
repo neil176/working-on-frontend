@@ -2,17 +2,19 @@ import React from 'react';
 
 import ProjectListItem from './ProjectListItem';
 
-const ProjectList = () => {
+const ProjectList = (props) => {
 	// should receive FILTERED list of projects
-	// or should just receive the filter and filter self????
+	
 
+	// each item should have an onClick to redirect to that project's page
+	let projectListItems = props.projects.map((project) => {
+		return <ProjectListItem key={project.title} project={project} />
+	})
 
 	return (
 		<div>
-			<h2>
-			this is the ProjectList component
-			</h2>
-			<ProjectListItem />
+			<h2>this is the ProjectList component</h2>
+			<ul>{projectListItems}</ul>
 		</div>
 	);
 }
