@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import Profile from '../components/Profile.js';
 import Filter from '../components/Filter.js';
 import ProjectList from '../components/ProjectList.js';
@@ -40,7 +41,6 @@ class HomeContainer extends React.Component {
         	return resp.json();
       	})
       	.then((respJSON) => {
-      		console.log("respJSON.projects", respJSON.projects) // this is where the array of project objects is
       		this.setState({
       			projects: respJSON.projects
       		})
@@ -67,8 +67,12 @@ class HomeContainer extends React.Component {
 	render() {
 
 // projects will need to be replaced by a filtered form of the list
+// new project button needs connecting
 		return (
-			<div>
+			<div className="home-container wrapper" >
+
+				<button>Start a new project</button>
+			
 				<Profile user={this.props.user} />
 				<Filter filterList={this.filterProjectList} />
 				<ProjectList projects={this.state.projects} />

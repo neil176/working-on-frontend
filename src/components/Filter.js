@@ -1,5 +1,7 @@
-
 import React from 'react';
+
+import '../App.css';
+
 
 
 class Filter extends React.Component {
@@ -28,9 +30,11 @@ class Filter extends React.Component {
 	render() {
 
 		return (
-			<form>
-				<input type="text" placeholder="filter here" onChange={this.handleChange} value={this.state.currentFilter} />
-			</form>
+			<div className="filter">
+				<form>
+					<input type="text" placeholder="filter here" onChange={this.handleChange} value={this.state.currentFilter} />
+				</form>
+			</div>
 		);
 	}
 }

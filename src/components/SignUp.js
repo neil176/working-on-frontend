@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Input, Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 
 class SignUp extends React.Component {
@@ -34,7 +34,6 @@ class SignUp extends React.Component {
 		})
 	}
 
-	// handle zipcode
 	handleEmailChange = (event) => {
 		this.setState({
 			email: event.target.value

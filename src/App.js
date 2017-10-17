@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import {Route, Redirect, Switch} from 'react-router-dom';
 
-
 import './App.css';
-
 
 import NavBar from './components/NavBar.js';
 import LogIn from './components/LogIn.js';
@@ -14,13 +13,10 @@ import ProjectContainer from './containers/ProjectContainer.js';
 
 
 
-
-
 class App extends Component {
 
   constructor(){
     super()
-
     this.state = {
       user: null,
       isLoggedIn: false
@@ -46,8 +42,12 @@ class App extends Component {
         user: respJSON.user,
         isLoggedIn: true
       })
-      console.log(this)
-      // this.props.history.push(`/users/${respJSON.user.id}`)
+
+      //fetch is ansync
+      //setState is also async could this cause a problem?
+      // look into the second argument setState takes
+
+      this.props.history.push(`/users/${respJSON.user.id}`)
     })
   }
 
@@ -110,10 +110,7 @@ class App extends Component {
         user: respJSON.user,
         isLoggedIn: true
       })
-      // console.log(this.props.history)
-
-      // this.props.history.push(`/users/${respJSON.user.id}`)
-      // is this the right place to push to "/users/:id" ?
+      this.props.history.push(`/users/${respJSON.user.id}`)
     })
   }
 
@@ -123,34 +120,17 @@ class App extends Component {
 
 
 
-// will need to add a HOC to redirect according to !!isLoggedIn
+// may need to add a HOC to redirect according to !!isLoggedIn ?
 
   render() {
 
-
-// resolve this with a HOC
-//---------------------------------------
-    // let home = null;
-    // if (this.state.isLoggedIn) {
-    //   home = <HomeContainer />
-    // } else {
-    //   home = <LandingContainer />
-    // }
-
-
-// THIS IS THE NON LOGGED IN component with props for: "/"
-    // removed from return!
-    // <Route path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
-
     return (
-      // restructure grid design so that this stops breaking
-
-
-      // change so that user homepage is no longer at "/", but rather at "/users/:id"
-      <div className="wrapper">
+      <div className="top-wrapper">
         <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
+        <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />
         <Switch>
           <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+          <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
           <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
         </Switch>          
       </div>
@@ -158,4 +138,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
