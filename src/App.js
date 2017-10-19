@@ -125,15 +125,18 @@ class App extends Component {
   render() {
 
     return (
-      <div className="top-wrapper">
-        <NavBar logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
+      <div>
+        <NavBar user={this.state.user} logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
         <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />
-        <Switch>
-          <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
-          <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
-          <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
-        </Switch>          
+        <div className="top-wrapper">  
+          <Switch>
+            <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+            <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
+            <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
+          </Switch>          
+        </div>
       </div>
+      
     );
   }
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 const ProjectListItem = (props) => {
 
@@ -12,13 +14,12 @@ const ProjectListItem = (props) => {
 		);
 	})
 
-	const baseUrl = "localhost:3001/users"
-	const projectUrl = `${baseUrl}/${props.project.user_id}/projects/${props.project.id}`
+	const projectPath = `/users/${props.project.user_id}/projects/${props.project.id}`
 
-
+// replace a tag with navlink
 	return (
 		<div>
-			<li> <a href={projectUrl} >{props.project.title}</a>
+			<li> <NavLink to={projectPath} exact>{props.project.title}</NavLink>
 				<ul>{items}</ul>
 			</li>
 			<br />

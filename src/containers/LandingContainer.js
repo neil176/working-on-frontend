@@ -23,7 +23,7 @@ class LandingContainer extends React.Component {
 			<div className="landing-container" >
 				
     			<Route path="/login" render={() => <LogIn logInUser={this.props.logInUser} />} />
-	        	<Route path="/signup" render={() => <SignUp SignUpUser={this.props.signUpUser} />} /> 
+	        	<Route path="/signup" render={() => <SignUp signUpUser={this.props.signUpUser} />} /> 
 	        	
 
 			</div>

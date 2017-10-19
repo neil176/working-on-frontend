@@ -2,8 +2,10 @@
 
 /* just for App level */
 .top-wrapper {
-  max-width: 940px;
+  max-width: 100%;
+  max-height: 75%;
   margin: 0 auto;
+
 }
 .top-wrapper > div {
   border: 2px solid rgb(0,0,0);
@@ -20,7 +22,9 @@
 
 /* for container levels */
 .wrapper {
-  max-width: 940px;
+  max-width: 100%;
+  max-height: 75%;
+
   margin: 0 auto;
 }
 .wrapper > div {
@@ -33,7 +37,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(100px, 165px);
 }
 
 /* for project list, profile view at "/users/:id" */
@@ -50,7 +54,11 @@
   grid-row: 1 / 4;
 }
 .filter {
-  grid-column: 2 / 5;
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+.new-project-button {
+  grid-column: 4;
   grid-row: 2;
 }
 
@@ -74,11 +82,25 @@
 .core-items-list {
   grid-column: 1 / 4;
   grid-row: 4;
+  white-space: nowrap;
+}
+
+
+#img {
+    white-space: nowrap;
 }
 
 
 /* assorted non-grid styling below */
-
+.scrollable {
+  overflow: scroll;
+}
+.scrollable-x {
+  overflow-x: scroll; 
+}
+.hidden {
+  overflow: hidden;
+}
 .project-list-item {
   
 }

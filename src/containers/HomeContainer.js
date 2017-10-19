@@ -1,9 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 
 
 import Profile from '../components/Profile.js';
 import Filter from '../components/Filter.js';
 import ProjectList from '../components/ProjectList.js';
+import NewProjectForm from '../components/NewProjectForm.js';
+
 
 
 
@@ -63,16 +67,33 @@ class HomeContainer extends React.Component {
 		})
 	}
 
+	
+
+	createProject = (newProjectParams) => {
+
+		fetch("http://localhost:3000/projects", {
+			method: 'post',
+			body: JSON.stringify(newProjectParams),
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+	    })
+	    .then((response) => {
+	      	return response.json()
+	    })
+	    .then((respJSON) => {
+	      	this.props.history.push(`/users/${respJSON.user.id}/projects/${respJSON.id}`);
+	    })
+	}
+
 
 	render() {
 
 // projects will need to be replaced by a filtered form of the list
-// new project button needs connecting
 		return (
 			<div className="home-container wrapper" >
-
-				<button>Start a new project</button>
-			
+				<NewProjectForm user={this.props.user} createProject={this.createProject}/>
 				<Profile user={this.props.user} />
 				<Filter filterList={this.filterProjectList} />
 				<ProjectList projects={this.state.projects} />
@@ -84,4 +105,4 @@ class HomeContainer extends React.Component {
 }
 
 
-export default HomeContainer;
+export default withRouter(HomeContainer);
