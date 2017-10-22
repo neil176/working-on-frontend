@@ -7,7 +7,8 @@ class NewItemForm extends React.Component {
 		super();
 		this.state = {
 			description: "",
-			imageUrl: ""
+			imageUrl: "",
+			core: false
 		}
 	}
 
@@ -19,13 +20,14 @@ class NewItemForm extends React.Component {
 		this.props.addItem({
 			description: this.state.description,
 			image: this.state.imageUrl,
+			core: this.state.core,
 			project_id: this.props.projectId
 		})
 
 
 		this.setState({
 			description: "",
-			imageUrl: ""
+			imageUrl: "",
 		})
 	}
 
@@ -41,6 +43,13 @@ class NewItemForm extends React.Component {
 		})
 	}
 
+	handleCoreChange = (event) => {
+		console.log(event.target)
+		this.setState({
+			core: !this.state.core
+		})
+	}
+
 	render() {
 		return (
 			<div className="button-block">
@@ -48,6 +57,7 @@ class NewItemForm extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" onChange={this.handleDescriptionChange} placeholder="description" value={this.state.description}/>
 					<input type="text" onChange={this.handleImgUrlChange} placeholder="image url" value={this.state.imageUrl}/>
+					<input type="checkbox" onChange={this.handleCoreChange} value={this.state.core} />
 					<input type="submit" />
 				</form>
 			</div>

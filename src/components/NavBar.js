@@ -26,7 +26,7 @@ const NavBar = (props) => {
 
 	if (props.isLoggedIn) {
 		content = (
-			<div>
+			<div className="navbar">
 				<NavLink
 				    to={homeUrl}
 				    exact
@@ -36,13 +36,13 @@ const NavBar = (props) => {
 				    }}
 				>Home</NavLink>
 				<NavLink
-	      			to="/preferences"
+	      			to="/feed"
 	      			exact
 	      			style={link}
 	      			activeStyle={{
 	        			background: 'darkblue'
 	      			}}
-	    		>Preferences</NavLink>
+	    		>Feed</NavLink>
 	    		<NavLink
 	      			to="/login"
 	      			exact

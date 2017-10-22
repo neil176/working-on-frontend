@@ -10,6 +10,7 @@ import SignUp from './components/SignUp.js';
 import LandingContainer from './containers/LandingContainer.js';
 import HomeContainer from './containers/HomeContainer.js';
 import ProjectContainer from './containers/ProjectContainer.js';
+import FeedContainer from './containers/FeedContainer.js';
 
 
 
@@ -126,13 +127,15 @@ class App extends Component {
 
     return (
       <div>
-        <NavBar user={this.state.user} logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
         <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />
-        <div className="top-wrapper">  
+        <div className="top-wrapper"> 
+          <NavBar user={this.state.user} logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
+
           <Switch>
             <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
             <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
             <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
+            <Route path="/feed" render={() => <FeedContainer user={this.state.user} />} />
           </Switch>          
         </div>
       </div>

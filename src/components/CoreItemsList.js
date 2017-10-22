@@ -14,9 +14,8 @@ const CoreItemsList = (props) => {
 	})
 
 	return (
-		<div className="core-items-list scrollable">
-		CoreItemsList
-		<span>{listItems} </span>
+		<div className="core-items-list scrollable-x">
+			{listItems}
 		</div>
 	);
 }

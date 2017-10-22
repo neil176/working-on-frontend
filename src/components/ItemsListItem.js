@@ -3,13 +3,12 @@ import React from 'react';
 const ItemsListItem = (props) => {
 
 	return (
-		<span>
+		<div className="item">
 			<figure>
-			
-			<img src={props.item.image} height="100" width="100" />
-			<figcaption>{props.item.description}</figcaption>
+				<img src={props.item.image} height="100" width="100" />
+				<figcaption>{props.item.description}</figcaption>
 			</figure>
-		</span>
+		</div>
 	);
 }
 
