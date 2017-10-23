@@ -2,11 +2,17 @@ import React from 'react';
 
 import FeedListItem from './FeedListItem.js';
 
-const FeedList = () => {
+const FeedList = (props) => {
+
+	// receives list of projects
+
+	let listItems = props.projects.map((project) => {
+		return <FeedListItem project={project} />
+	})
 
 	return (
-		<div>
-			feed list component
+		<div className="feed-list">
+			{listItems}
 		</div>
 	);
 }

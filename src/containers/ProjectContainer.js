@@ -4,6 +4,8 @@ import ItemsList from '../components/ItemsList.js';
 import CoreItemsList from '../components/CoreItemsList.js';
 import NewItemForm from '../components/NewItemForm.js';
 import CurrentItem from '../components/CurrentItem.js';
+import ProjectInfo from '../components/ProjectInfo.js';
+
 
 
 
@@ -101,6 +103,7 @@ class ProjectContainer extends React.Component {
 
 			return (
 				<div className="home-container wrapper">
+					<ProjectInfo project={this.state.project} />
 					<CurrentItem item={this.state.currentItem || null} />
 					<NewItemForm addItem={this.addItem} projectId={this.state.project.id}/>
 					<CoreItemsList changeCurrentItem={this.changeCurrentItem} items={coreItems} />

@@ -44,6 +44,14 @@ const NavBar = (props) => {
 	      			}}
 	    		>Feed</NavLink>
 	    		<NavLink
+	      			to="/search"
+	      			exact
+	      			style={link}
+	      			activeStyle={{
+	        			background: 'darkblue'
+	      			}}
+	    		>Search</NavLink>
+	    		<NavLink
 	      			to="/login"
 	      			exact
 	      			style={link}

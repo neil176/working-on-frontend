@@ -21,7 +21,7 @@ const ProjectListItem = (props) => {
 
 // replace a tag with navlink
 	return (
-		<div className="project-list-item">
+		<div className="project-list-item feed-list-item">
 			<NavLink to={projectPath} exact>{props.project.title}</NavLink>
 			<br />
 			{items}

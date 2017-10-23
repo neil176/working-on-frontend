@@ -58,9 +58,9 @@ class FeedContainer extends React.Component {
 			let date1 = new Date(proj1.updated_at);
 			let date2 = new Date(proj2.updated_at);
 			if (date1 < date2) {
-				return -1;
-			} else if (date1 > date2) {
 				return 1;
+			} else if (date1 > date2) {
+				return -1;
 			} else {
 				return 0;
 			}
@@ -69,20 +69,21 @@ class FeedContainer extends React.Component {
 		let sortedProjects = projects.sort(comparator)
 
 		return sortedProjects;
-// more needs to happen, so far we just have an array of projects ordered by most recently updated
 	}
 
 
 	render() {
 
+		let projects = []
+
 		if (this.state.followees) {
-			this.assembleFeed()
+			projects = this.assembleFeed()
 		}
 		
 
 		return (
-			<div className="wrapper">
-				<FeedList />
+			<div className="home-container wrapper">
+				<FeedList projects={projects} />
 			</div>
 		);
 	}

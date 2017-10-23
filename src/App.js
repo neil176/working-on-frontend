@@ -11,7 +11,7 @@ import LandingContainer from './containers/LandingContainer.js';
 import HomeContainer from './containers/HomeContainer.js';
 import ProjectContainer from './containers/ProjectContainer.js';
 import FeedContainer from './containers/FeedContainer.js';
-
+import SearchContainer from './containers/SearchContainer.js';
 
 
 class App extends Component {
@@ -136,6 +136,7 @@ class App extends Component {
             <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
             <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
             <Route path="/feed" render={() => <FeedContainer user={this.state.user} />} />
+            <Route path="/search" render={() => <SearchContainer user={this.state.user} />} />
           </Switch>          
         </div>
       </div>
