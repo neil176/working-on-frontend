@@ -1,18 +1,41 @@
 import React from 'react';
 
 
-const SearchBar = (props) => {
+class SearchBar extends React.Component {
+
+	constructor() {
+		super();
+		this.state = {
+			query: ""
+		}
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault();
+		this.props.search(this.state.query);
+		this.setState({
+			query: ""
+		})
+	}
+
+	handleQueryChange = (event) => {
+		this.setState({
+			query: event.target.value
+		})
+	}
 
 
-	return (
-		<div>
-			SearchBar
-			<form>
-				<input type="text" />
-				<input type="submit" />
-			</form>
-		</div>
-	);
+	render() {
+		return (
+			<div>
+				SearchBar
+				<form onSubmit={this.handleSubmit} >
+					<input onChange={this.handleQueryChange} type="text" value={this.state.query} />
+					<input type="submit" />
+				</form>
+			</div>
+		);
+	}
 }
 
 export default SearchBar;

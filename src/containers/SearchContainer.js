@@ -11,10 +11,9 @@ class SearchContainer extends React.Component {
 		}
 	}
 
-	search(searchParams) {
-		fetch("http://localhost:3000/users", { // fix url and setup counterpart in backend
+	search = (query) => {
+		fetch(`http://localhost:3000/search?query=${query}`, { 
 		    method: 'get',
-		    body: JSON.stringify(searchParams),
 		    headers: {
 	        	"Accept": "application/json",
 	        	"Content-Type": "application/json",
@@ -32,13 +31,37 @@ class SearchContainer extends React.Component {
 	    })
 	}
 
-	render() {
+	follow = (id) => {
+		fetch("http://localhost:3000/follows", {
+      		method: 'post',
+      		body: JSON.stringify({
+      			follower_id: this.props.user.id,
+      			followee_id: id
+      		}),
+      		headers: {
+        		"Accept": "application/json",
+        		"Content-Type": "application/json"
+      		}
+    	})
+    	.then((response) => {
+      		return response.json()
+    	})
+    	.then((respJSON) => {
+    		debugger
+      		console.log(respJSON)
+      		
+    })
+	}
 
+
+
+	render() {
+		console.log(this.state)
 		return (
 			<div className="wrapper">
 				SearchContainer
 				<SearchBar search={this.search} />
-				<ResultsList projects={this.state.projects} />
+				<ResultsList projects={this.state.projects} follow={this.follow} />
 			</div>
 		);
 	}

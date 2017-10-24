@@ -1,24 +1,27 @@
 import React from 'react'
 
 import ProjectListItem from './ProjectListItem';
+import ResultsListItem from './ResultsListItem';
+
 
 
 const ResultsList = (props) => {
 
+	let projectsList = null
+	console.log(props)
 	if (props.projects) {
-		props.projects.map((project) => {
-			<ProjectListItem project={project} resultsList={true} />
+		projectsList = props.projects.map((project) => {
+			return <ResultsListItem project={project} follow={props.follow} />
 		})		
 	}
 
 	return (
-		<div> 
+		<div className="feed-list"> 
 		Results list
+		{projectsList}
 		</div>
 	)
 }
 
 
 export default ResultsList;
-
-// this should incorporate the same listItem as the home projectsList
