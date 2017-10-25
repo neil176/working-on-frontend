@@ -6,10 +6,6 @@ import NewItemForm from '../components/NewItemForm.js';
 import CurrentItem from '../components/CurrentItem.js';
 import ProjectInfo from '../components/ProjectInfo.js';
 
-
-
-
-
 // project container will be the main container for a single project view
 
 // subcomponents:
@@ -19,7 +15,6 @@ import ProjectInfo from '../components/ProjectInfo.js';
 		// 	item
 		// coreItemsList
 		// 	coreItem
-
 
 // this container is responsible for:
 //		fetching project info ------------- or does it receive as props from app?
@@ -52,9 +47,6 @@ class ProjectContainer extends React.Component {
 	      	return response.json()
 	    })
 	    .then((respJSON) => {
-
-	      	console.log(respJSON)
-	      
 	      	this.setState({
 	       		project: respJSON
 	      	})
@@ -85,13 +77,13 @@ class ProjectContainer extends React.Component {
 		this.fetchProject()
 	}
 
-	changeCurrentItem = (event) => {
-		console.log(event.target)
+	changeCurrentItem = (item) => {
+		this.setState({
+			currentItem: item
+		})
 	}
 
 
-
-// should distingush between core and non-core items before passing down, not passing entire project
 	render() {
 		if (this.state.project) {
 			const coreItems = this.state.project.items.filter((item) =>{

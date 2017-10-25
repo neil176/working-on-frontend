@@ -10,7 +10,7 @@ const CoreItemsList = (props) => {
 	// })
 
 	const listItems = props.items.map((item) => {
-		return <ItemsListItem item={item}/>
+		return <ItemsListItem changeCurrentItem={props.changeCurrentItem} item={item}/>
 	})
 
 	return (
