@@ -17,11 +17,11 @@ const FeedListItem = (props) => {
 		
 		return (
 			<div className="feed-list-item">
-				<h3>{props.project.user.username} started working on {props.project.title}</h3>
+				<h3><span className="spec-text">{props.project.user.username}</span> started working on <span className="spec-text">{props.project.title}</span></h3>
 				<br />
 				<img src={onlyCoreItem.image} alt="" className="feed-image" />
 				<br />
-				{props.project.updated_at}
+
 				<br />
 				
 
@@ -35,14 +35,14 @@ const FeedListItem = (props) => {
 
 		return (
 			<div className="feed-list-item">
-				<h3>{props.project.user.username} made progress on {props.project.title}</h3>
+				<h3><span className="spec-text">{props.project.user.username}</span> made progress on <span className="spec-text">{props.project.title}</span></h3>
 				<br />
 				<img src={penultimateCoreItem.image} alt="" className="feed-image" />
-				<img src={arrowUrl} alt="" className="feed-image" />
+				<img src={arrowUrl} alt="" className="feed-image arrow" />
 
 				<img src={lastCoreItem.image} alt="" className="feed-image" />
 				<br />
-				{props.project.updated_at}
+
 				<br />
 				
 

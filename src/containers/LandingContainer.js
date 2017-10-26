@@ -20,7 +20,7 @@ class LandingContainer extends React.Component {
 // will need to make sure receiving callbacks to pass into LogIn and SignUp
 
 		return (
-			<div className="home-container" >
+			<div className="home-container wrapper" >
 				
     			<Route path="/login" render={() => <LogIn logInUser={this.props.logInUser} />} />
 	        	<Route path="/signup" render={() => <SignUp signUpUser={this.props.signUpUser} />} /> 

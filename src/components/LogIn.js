@@ -1,6 +1,4 @@
 import React from 'react';
-import { Input, Form } from 'semantic-ui-react';
-
 
 class LogIn extends React.Component {
 
@@ -38,13 +36,13 @@ class LogIn extends React.Component {
 
 	render(){
 		return (
-			<div>
+			<div className="sign-in">
 			<form onSubmit={this.handleSubmit}>
-			    <label>Username</label>
-			    <input type="text" onChange={this.handleUsernameChange} value={this.state.username} placeholder='Username' />
-			    <label>Password</label>
-			    <input type="password" onChange={this.handlePasswordChange} value={this.state.password} placeholder='Password' />
-				<input value="Sign In" type="submit" />
+			    <br/><label>Username</label>
+			    <br/><input type="text" onChange={this.handleUsernameChange} value={this.state.username} placeholder='Username' />
+			    <br/><label>Password</label>
+			    <br/><input type="password" onChange={this.handlePasswordChange} value={this.state.password} placeholder='Password' />
+				<br/><input value="Sign In" type="submit" />
 			</form>
 			</div>
 		);

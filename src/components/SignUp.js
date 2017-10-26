@@ -1,6 +1,4 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
-
 
 class SignUp extends React.Component {
 
@@ -61,19 +59,19 @@ class SignUp extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="sign-in">
 			<form onSubmit={this.handleSubmit}>
-				<label>Username</label>
-				<input type="text" onChange={this.handleUsernameChange} value={this.state.username}/>
-				<label>Password</label>
-				<input type="password" onChange={this.handlePasswordChange} value={this.state.password}/>
+					<label>Username</label>
+				<br/><input type="text" onChange={this.handleUsernameChange} value={this.state.username}/>
+				<br/><label>Password</label>
+				<br/><input type="password" onChange={this.handlePasswordChange} value={this.state.password}/>
 		
-				<label>Password Confirmation</label>
-				<input type="password" onChange={this.handlePasswordConfirmationChange} value={this.state.password_confirm}/>
-				<label>Email</label>
-				<input type="text" onChange={this.handleEmailChange} value={this.state.email}/>
+				<br/><label>Password Confirmation</label>
+				<br/><input type="password" onChange={this.handlePasswordConfirmationChange} value={this.state.password_confirm}/>
+				<br/><label>Email</label>
+				<br/><input type="text" onChange={this.handleEmailChange} value={this.state.email}/>
 				
-				<input type="submit"/>
+				<br/><input type="submit"/>
 			</form>
 			</div>
 		);

@@ -8,7 +8,7 @@ const ProjectInfo = (props) => {
 			<div>
 				<h2>{props.project.title}</h2>
 				Tags: 
-				<ul>{props.project.tags.map((tag) => <li>{tag.text} at id: {tag.id} </li>)}</ul>
+				<ul>{props.project.tags.map((tag) => <li>{tag.text}</li>)}</ul>
 			</div>
 		);
 	} else {

@@ -53,12 +53,13 @@ class NewItemForm extends React.Component {
 	render() {
 		return (
 			<div className="button-block">
-				this is the new item form
+				Add an item to your project
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" onChange={this.handleDescriptionChange} placeholder="description" value={this.state.description}/>
 					<input type="text" onChange={this.handleImgUrlChange} placeholder="image url" value={this.state.imageUrl}/>
+					<br/><label>Share progress?</label>
 					<input type="checkbox" onChange={this.handleCoreChange} value={this.state.core} />
-					<input type="submit" />
+					<br/><input type="submit" />
 				</form>
 			</div>
 		);

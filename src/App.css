@@ -145,6 +145,7 @@ body {
 img {
   display: inline;
   max-width: 90%;
+  border: 4px groove rgb(160,160,160);
 }
 
 .item {
@@ -186,6 +187,32 @@ img {
 }
 .hidden {
   overflow: hidden;
+}
+.inline {
+  display: inline;
+}
+.spec-text {
+  color: rgb(230,200,0);
+}
+.arrow {
+  border: none;
+}
+h3 {
+  color: rgb(230,200,0);
+}
+h2 {
+  color: rgb(230,200,0);
+}
+.logo {
+  color: rgb(230,200,0);
+  float: right;
+}
+.results-list-item {
+  /*max-height: 300px;*/
+}
+.sign-in {
+  grid-column: 2 / 4;
+  grid-row: 1;
 }
 
 
