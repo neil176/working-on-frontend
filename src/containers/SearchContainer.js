@@ -58,8 +58,7 @@ class SearchContainer extends React.Component {
 	render() {
 		console.log(this.state)
 		return (
-			<div className="wrapper">
-				SearchContainer
+			<div className="home-container wrapper">
 				<SearchBar search={this.search} />
 				<ResultsList projects={this.state.projects} follow={this.follow} />
 			</div>

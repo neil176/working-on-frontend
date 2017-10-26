@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import {Route, Redirect, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom'; // removed Redirect from this import, may bring back
 
 import './App.css';
 
 import NavBar from './components/NavBar.js';
-import LogIn from './components/LogIn.js';
-import SignUp from './components/SignUp.js';
 import LandingContainer from './containers/LandingContainer.js';
 import HomeContainer from './containers/HomeContainer.js';
 import ProjectContainer from './containers/ProjectContainer.js';
@@ -127,12 +125,12 @@ class App extends Component {
 
     return (
       <div>
-        <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />
+
         <div className="top-wrapper"> 
           <NavBar user={this.state.user} logOutUser={this.logOutUser} isLoggedIn={this.state.isLoggedIn} />
-
           <Switch>
-            <Route exact path="/" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+            <Route exact path="/signup" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
+            <Route exact path="/login" render={() => <LandingContainer signUpUser={this.signUpUser} logInUser={this.logInUser} />} />
             <Route path="/users/:id/projects/:id" render={() => <ProjectContainer user={this.state.user} /> } />
             <Route path="/users/:id" render={() => <HomeContainer user={this.state.user} />} />
             <Route path="/feed" render={() => <FeedContainer user={this.state.user} />} />

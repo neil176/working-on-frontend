@@ -1,86 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-
-
-
-/* Add basic styling for NavLinks */
-const link = {
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
-  cursor: 'pointer'
-}
-
+import { NavLink } from 'react-router-dom';
 
 const NavBar = (props) => {
   	let content = null;
   	let homeUrl = "/"
 
+// in order for url to be usefully shareable in future with viewing a profile page of some kind
   	if (props.user) {
   		homeUrl = `/users/${props.user.id}`
   	} 
 
+// user is logged in -- show all navbar options
 	if (props.isLoggedIn) {
 		content = (
 			<div className="navbar">
-				<NavLink
-				    to={homeUrl}
-				    exact
-				    style={link}
-				    activeStyle={{
-				        background: 'darkblue'
-				    }}
-				>Home</NavLink>
-				<NavLink
-	      			to="/feed"
-	      			exact
-	      			style={link}
-	      			activeStyle={{
-	        			background: 'darkblue'
-	      			}}
-	    		>Feed</NavLink>
-	    		<NavLink
-	      			to="/search"
-	      			exact
-	      			style={link}
-	      			activeStyle={{
-	        			background: 'darkblue'
-	      			}}
-	    		>Search</NavLink>
-	    		<NavLink
-	      			to="/login"
-	      			exact
-	      			style={link}
-	      			onClick={props.logOutUser}
-	      			activeStyle={{
-	        			background: 'darkblue'
-	      			}}
-	    		>Logout</NavLink>
+				<NavLink to={homeUrl} exact className="link" activeClassName="active">Home</NavLink>
+				<NavLink to="/feed" exact className="link" activeClassName="active">Feed</NavLink>
+	    		<NavLink to="/search" exact className="link" activeClassName="active">Search</NavLink>
+	    		<NavLink to="/login" exact className="link" onClick={props.logOutUser} activeClassName="active">Logout</NavLink>
 	    	</div>
 		);
+// user is not logged in -- only show login and signup
 	} else {
 		content = (
 			<div>
-				<NavLink
-			    	to="/login"
-			    	exact
-			    	style={link}
-			      	activeStyle={{
-			        	background: 'darkblue'
-			      	}}
-			    >Login</NavLink>
-			    <NavLink
-			      	to="/signup"
-			      	exact
-			      	style={link}
-			      	activeStyle={{
-			        	background: 'darkblue'
-			      	}}
-			    >Sign Up</NavLink>
+				<NavLink to="/login" exact className="link" activeClassName="active">Login</NavLink>
+			    <NavLink to="/signup" exact className="link" activeClassName="active">Sign Up</NavLink>
 		    </div>
 		);
 	}

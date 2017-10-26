@@ -7,9 +7,9 @@ const ItemsListItem = (props) => {
 	}
 
 	return (
-		<div onClick={handleSelect} className="item">
+		<div onClick={handleSelect} className="item non-core-item">
 			<figure>
-				<img src={props.item.image} height="100" width="100" />
+				<img src={props.item.image} alt="" />
 				<figcaption>{props.item.description}</figcaption>
 			</figure>
 		</div>

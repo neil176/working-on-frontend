@@ -6,13 +6,13 @@ const ProjectList = (props) => {
 	// should receive FILTERED list of projects
 	
 	// each item should have an onClick to redirect to that project's page
-	let projectListItems = props.projects.map((project) => {
+	let projectListItems = props.projects.reverse().map((project) => {
 		return <ProjectListItem key={project.title} project={project} />
 	})
 
 	return (
 		<div className="project-list scrollable">
-			<h2>this is the ProjectList component</h2>
+			<h2>Projects</h2>
 			{projectListItems}
 		</div>
 	);

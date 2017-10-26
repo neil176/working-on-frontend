@@ -5,10 +5,11 @@ const Profile = (props) => {
 	if (props.user) {
 		return (
 			<div className="profile">
-				<h3>This is {props.user.username}'s Profile</h3>
+				<h3>{props.user.username}</h3>
+				
+				<img src={props.user.picture} alt=""/>
 				<p>render some profile info here</p>
 				<br />
-				<img src={props.user.picture} height="100" width="150"/>
 			</div>
 		);
 	} else {

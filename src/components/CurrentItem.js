@@ -7,7 +7,7 @@ const CurrentItem = (props) => {
 		return (
 			<div className="current-item">
 				current item here <br /> {props.item.description}
-				<img src={props.item.image} height="300" width="450" />
+				<img src={props.item.image} className="current-item-image" alt="" />
 			</div>
 		);
 	} else {

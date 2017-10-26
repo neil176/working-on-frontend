@@ -38,17 +38,15 @@ class LogIn extends React.Component {
 
 	render(){
 		return (
-			<Form onSubmit={this.handleSubmit}>
-				<Form.Field>
-				    <label>Username</label>
-				    <input type="text" onChange={this.handleUsernameChange} value={this.state.username} placeholder='Username' />
-				</Form.Field>
-				<Form.Field>
-				    <label>Password</label>
-				    <input type="password" onChange={this.handlePasswordChange} value={this.state.password} placeholder='Password' />
-				</Form.Field>			
-				<Input value="Sign In" type="submit" />
-			</Form>
+			<div>
+			<form onSubmit={this.handleSubmit}>
+			    <label>Username</label>
+			    <input type="text" onChange={this.handleUsernameChange} value={this.state.username} placeholder='Username' />
+			    <label>Password</label>
+			    <input type="password" onChange={this.handlePasswordChange} value={this.state.password} placeholder='Password' />
+				<input value="Sign In" type="submit" />
+			</form>
+			</div>
 		);
 	}
 }

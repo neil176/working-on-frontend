@@ -1,6 +1,5 @@
 import React from 'react'
 
-import ProjectListItem from './ProjectListItem';
 import ResultsListItem from './ResultsListItem';
 
 
@@ -16,7 +15,7 @@ const ResultsList = (props) => {
 	}
 
 	return (
-		<div className="feed-list"> 
+		<div className="results-list"> 
 		Results list
 		{projectsList}
 		</div>

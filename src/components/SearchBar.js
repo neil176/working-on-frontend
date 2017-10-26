@@ -27,8 +27,8 @@ class SearchBar extends React.Component {
 
 	render() {
 		return (
-			<div>
-				SearchBar
+			<div className="search-bar">
+				Search by project tag or username
 				<form onSubmit={this.handleSubmit} >
 					<input onChange={this.handleQueryChange} type="text" value={this.state.query} />
 					<input type="submit" />

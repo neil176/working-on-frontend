@@ -10,8 +10,6 @@ class NewProjectForm extends React.Component {
 		}
 	}
 
-	
-
 	handleTitleChange = (event) => {
 		this.setState({
 			title: event.target.value
@@ -26,12 +24,10 @@ class NewProjectForm extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-
 		let tagParams = this.state.tags.split(",").map((tagText) => {
 				return {text: tagText}
 			})
 		tagParams.push({text: this.props.user.username});
-
 		this.props.createProject({
 			user_id: this.props.user.id,
 			title: this.state.title,
@@ -44,9 +40,9 @@ class NewProjectForm extends React.Component {
 		return (
 			<div className="new-project-button">
 				<form onSubmit={this.handleSubmit}>
-					<label>Start a new Project!</label>
-					<input onChange={this.handleTitleChange} type="text" placeholder="title" value={this.state.title} />
-					<input onChange={this.handleTagsChange} type="text" placeholder="tags" value={this.state.tags} />
+					<label>Start a new Project!</label><br/>
+					<input onChange={this.handleTitleChange} type="text" placeholder="title" value={this.state.title} /><br/>
+					<input onChange={this.handleTagsChange} type="text" placeholder="tags" value={this.state.tags} /><br/>
 					<input type="submit" />
 				</form>
 			</div>
