@@ -56,7 +56,7 @@ class NewItemForm extends React.Component {
 				Add an item to your project
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" onChange={this.handleDescriptionChange} placeholder="description" value={this.state.description}/>
-					<input type="text" onChange={this.handleImgUrlChange} placeholder="image url" value={this.state.imageUrl}/>
+					<br/><input type="text" onChange={this.handleImgUrlChange} placeholder="image url" value={this.state.imageUrl}/>
 					<br/><label>Share progress?</label>
 					<input type="checkbox" onChange={this.handleCoreChange} value={this.state.core} />
 					<br/><input type="submit" />

@@ -61,6 +61,7 @@ body {
   color: #ddeeee;
   border: 2px solid rgb(175,175,0);
   border-radius: 5px;
+  text-decoration: none;
 }
 .active {
   background: darkblue;

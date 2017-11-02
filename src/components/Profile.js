@@ -8,7 +8,7 @@ const Profile = (props) => {
 				<h3>{props.user.username}</h3>
 				
 				<img src={props.user.picture} alt=""/>
-				<p>render some profile info here</p>
+				
 				<br />
 			</div>
 		);

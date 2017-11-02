@@ -31,7 +31,7 @@ const FeedListItem = (props) => {
 // the project has at least 2 core items -> display its most recent two to show progress
 	} else if (coreItems.length > 1) {
 		let penultimateCoreItem = coreItems.slice(-2)[0]
-		let lastCoreItem = coreItems.slice(-2)[0]
+		let lastCoreItem = coreItems.slice(-1)[0]
 
 		return (
 			<div className="feed-list-item">
